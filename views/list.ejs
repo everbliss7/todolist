@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Todolist" />
+    <meta name="author" content="Blessing Tayedzerwa" />
+    <!-- Bootstrap 4 link -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>TodoList</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row jumbotron mt-5">
+        <div class="col-md-5">
+          <h2 class="text-center">TodoList</h2>
+          <!-- List todo Items -->
+          <ul class="list-group">
+            <% for(let i = 0; i < todoList.length; i++) { %>
+            <li class="list-group-item">
+              <!-- Checkbox -->
+              <input
+                type="checkbox"
+                class="checkbox"
+                id="<%= todoList[i].id %>"
+              />
+              <span class="item-text mr-5"><%= todoList[i].task %></span>
+              <!-- Buttons -->
+              <button class="btn btn-sm btn-primary ml-1 float-right">
+                Edit
+              </button>
+              <button class="btn btn-sm btn-danger ml-1 float-right">
+                Delete
+              </button>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+        <!-- FORM -->
+        <div class="col-md-6">
+          <h2 class="text-center">Add New Item</h2>
+          <form action="/addtask" method="POST" class="">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="task"
+                name="task"
+                placeholder="Enter task"
+              />
+            </div>
+            <!-- Due date -->
+            <div class="form-group">
+              <label for="dueDate">Due Date</label>
+              <input
+                type="date"
+                class="form-control"
+                id="dueDate"
+                name="dueDate"
+                placeholder="Enter due date"
+              />
+            </div>
+            <!-- Todo item Description -->
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input
+                type="text"
+                class="form-control"
+                id="description"
+                name="description"
+                placeholder="Enter description"
+              />
+            </div>
+            <!-- Todo item category -->
+            <div class="form-group">
+              <label for="category">Category</label>
+              <input
+                type="text"
+                class="form-control"
+                id="category"
+                name="category"
+                placeholder="Enter category"
+              />
+            </div>
+            <!-- Todo item priority -->
+            <div class="form-group">
+              <label for="priority">Priority</label>
+              <input
+                type="text"
+                class="form-control"
+                id="priority"
+                name="priority"
+                placeholder="Enter priority"
+              />
+            </div>
+            <!-- Todo item tags -->
+            <div class="form-group">
+              <label for="tags">Tags</label>
+              <input
+                type="text"
+                class="form-control"
+                id="tags"
+                name="tags"
+                placeholder="Enter tags"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
